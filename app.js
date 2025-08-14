@@ -52,6 +52,7 @@ function sortearAmigo() {
 
 		let li = document.createElement("li");
 		li.innerText = 'El amigo sorteado es: ' + elegirAmigo();
+		li.style.color = '#fe652b'; // Un especie de naranja
 		ulDom.appendChild(li);
 		limpiarInput();
 
