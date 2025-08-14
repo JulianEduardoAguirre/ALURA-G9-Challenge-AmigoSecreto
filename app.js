@@ -51,7 +51,7 @@ function agregarAmigo() {
 
 function sortearAmigo() {
 
-	if (arregloAmigos.length == 0) {
+	if (arregloAmigos.length < 2) {
 		alert("¡Primero debes ingresar el nombre de tus amigos!");
 	} else {
 		limpiarListaAmigosDOM();
