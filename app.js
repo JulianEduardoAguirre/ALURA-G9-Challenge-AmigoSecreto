@@ -8,6 +8,19 @@ function comprobarTexto(texto) {
 	return texto.length == 0;
 }
 
+function limpiarLista() {
+	ulDom.innerHTML = '';
+}
+
+function limpiarInput() {
+	inputNombre.value = '';
+}
+
+function elegirAmigo() {
+	const indiceAleatorio = Math.floor(Math.random() * arregloAmigos.length);
+	return nombreSorteado =  arregloAmigos[indiceAleatorio];
+}
+
 function agregarAmigo() {
 	let textoIngresado = inputNombre.value;
 	// console.log(textoIngresado);
@@ -15,15 +28,14 @@ function agregarAmigo() {
 
 	if (!comprobarTexto(textoIngresado)) {
 		arregloAmigos.push(textoIngresado);
-		ulDom.innerHTML = '';
+		limpiarLista();
 
 		arregloAmigos.forEach((item) => {
 		let li = document.createElement("li");
 		li.innerText = item;
 		ulDom.appendChild(li);
-		inputNombre.value = '';
-
-	});
+		limpiarInput();
+		});
 
 	} else {
 		alert("¡Debe ingresar un nombre!");
@@ -36,14 +48,12 @@ function sortearAmigo() {
 	if (arregloAmigos.length == 0) {
 		alert("¡Primero debes ingresar el nombre de tus amigos!");
 	} else {
-		ulDom.innerHTML = '';
-    const indiceAleatorio = Math.floor(Math.random() * arregloAmigos.length);
-    let nombreSorteado =  arregloAmigos[indiceAleatorio];
+		limpiarLista();
 
 		let li = document.createElement("li");
-		li.innerText = nombreSorteado;
+		li.innerText = 'El amigo sorteado es: ' + elegirAmigo();
 		ulDom.appendChild(li);
-		inputNombre.value = '';
+		limpiarInput();
 
 	}
 
